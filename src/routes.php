@@ -26,6 +26,42 @@ $app->get('/ajuda', function ($request, $response, $args) {
     ]);
 })->setName('help');
 
+// Define named route
+$app->get('/smx', function ($request, $response, $args) {
+
+$courses = [["id" => 1, "name" => "Muntatge i manteniment d’equips", "nufs" => 6, "code" => "M01_MME"], 
+            ["id" => 2, "name" => "Sistemes operatius monolloc", "nufs" => 3, "code" => "M02_SOM"], 
+            ["id" => 3, "name" => "Aplicacions ofimàtiques", "nufs" => 6, "code" => "M03_APO"],
+            ["id" => 4, "name" => "Sistemes operatius en xarxa", "nufs" => 4, "code" => "M04_SOX"],
+            ["id" => 5, "name" => "Xarxes locals", "nufs" => 3, "code" => "M05_XAL"],
+            ["id" => 6, "name" => "Seguretat informàtica", "nufs" => 5, "code" => "M06_SEG"],
+            ["id" => 7, "name" => "Serveis de xarxa", "nufs" => 4, "code" => "M07_SEX"],
+            ["id" => 8, "name" => "Aplicacions web", "nufs" => 5, "code" => "M08_APW"],
+            ["id" => 9, "name" => "FOL", "nufs" => 2, "code" => "M09_FOL"],
+            ["id" => 10, "name" => "Empresa i iniciativa empresarial", "nufs" => 1, "code" => "M10_EIE"],
+            ["id" => 11, "name" => "Crèdit de síntesi", "nufs" => 1, "code" => "M11_CS"],
+            ["id" => 12, "name" => "Anglès tècnic", "nufs" => 1, "code" => "M12_ANG"],
+            ["id" => 13, "name" => "Formació en centres de treball", "nufs" => 1, "code" => "M13_FCT"]];
+
+$primer[] = $courses[0];
+$primer[] = $courses[1];
+$primer[] = $courses[2];
+$primer[] = $courses[4];
+$primer[] = $courses[8];
+$primer[] = $courses[11];
+$segon[] = $courses[3];
+$segon[] = $courses[5];
+$segon[] = $courses[6];
+$segon[] = $courses[7];
+$segon[] = $courses[9];
+$segon[] = $courses[10];
+$segon[] = $courses[12];
+
+    return $this->view->render($response, 'smx.html', [
+        'name' => $args['name'],
+        'courses' => [["name" => "Primer curs", "modules" => $primer], ["name" => "Segon curs", "modules" => $segon]]
+    ]);
+})->setName('smx');
 
 
 // Define named route
