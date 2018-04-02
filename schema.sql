@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 14, 2017 at 11:50 PM
--- Server version: 5.7.20-0ubuntu0.16.04.1
--- PHP Version: 7.0.25-1+ubuntu16.04.1+deb.sury.org+1
+-- Generation Time: Apr 02, 2018 at 09:20 PM
+-- Server version: 5.7.21-0ubuntu0.16.04.1
+-- PHP Version: 7.0.28-1+ubuntu16.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,19 @@ SET time_zone = "+00:00";
 --
 -- Database: `slim.local`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Enrollment`
+--
+
+CREATE TABLE `Enrollment` (
+  `id` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  `studentId` int(11) NOT NULL,
+  `groupId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -48,7 +61,7 @@ INSERT INTO `example` (`id`, `name`) VALUES
 CREATE TABLE `prestudent` (
   `id` int(11) NOT NULL,
   `dni_nie` text COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255)  COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `name` text COLLATE utf8_unicode_ci NOT NULL,
   `surnames` text COLLATE utf8_unicode_ci NOT NULL,
   `address` text COLLATE utf8_unicode_ci NOT NULL,
@@ -63,6 +76,44 @@ CREATE TABLE `prestudent` (
 
 INSERT INTO `prestudent` (`id`, `dni_nie`, `email`, `name`, `surnames`, `address`, `studies`, `born`, `nim`) VALUES
 (7, '145151234', 'email@example.com', 'John', 'Doe', 'Mountain View 17', 'ESO', '1999-11-01', '14515123420171114231124');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Relative`
+--
+
+CREATE TABLE `Relative` (
+  `id` int(11) NOT NULL,
+  `studentId` int(11) NOT NULL,
+  `dni_nie` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `name` text COLLATE utf8_unicode_ci NOT NULL,
+  `surnames` text COLLATE utf8_unicode_ci NOT NULL,
+  `email` text COLLATE utf8_unicode_ci NOT NULL,
+  `phone` int(11) NOT NULL,
+  `mobile` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Student`
+--
+
+CREATE TABLE `Student` (
+  `id` int(11) NOT NULL,
+  `dni_nie` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `name` text COLLATE utf8_unicode_ci NOT NULL,
+  `first_surname` text COLLATE utf8_unicode_ci NOT NULL,
+  `second_surname` text COLLATE utf8_unicode_ci NOT NULL,
+  `address` text COLLATE utf8_unicode_ci NOT NULL,
+  `town` text COLLATE utf8_unicode_ci NOT NULL,
+  `postal_code` int(11) NOT NULL,
+  `nationality` text COLLATE utf8_unicode_ci NOT NULL,
+  `email` int(11) NOT NULL,
+  `phone` int(11) NOT NULL,
+  `mobile` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -96,6 +147,21 @@ ALTER TABLE `example`
 ALTER TABLE `prestudent`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `prestudent_email` (`email`);
+
+--
+-- Indexes for table `Relative`
+--
+ALTER TABLE `Relative`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `studentId` (`studentId`);
+
+--
+-- Indexes for table `Student`
+--
+ALTER TABLE `Student`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `dni_nie` (`dni_nie`);
+
 --
 -- Indexes for table `todos`
 --
@@ -122,6 +188,16 @@ ALTER TABLE `prestudent`
 --
 ALTER TABLE `todos`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `Relative`
+--
+ALTER TABLE `Relative`
+  ADD CONSTRAINT `Relative_ibfk_1` FOREIGN KEY (`studentId`) REFERENCES `Student` (`id`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

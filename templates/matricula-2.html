@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container">
+
+<br>
+
+<div class="progress">
+  <div class="progress-bar bar50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<br>
+
+<h1>{{year}}er {{course}} <span class="badge badge-success float-right">Nova matrícula</span></h1>
+
+  <div class="card">
+    <div class="card-body">
+      {% include "student-data.html" %} 
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+    {% include "parents-data.html" %} 
+    </div>
+  </div>
+
+  <br>
+
+  {% include "smx.html" %} 
+
+  <br>
+
+  <button type="submit" class="btn btn-primary float-right">Confirmació de la matrícula</button>
+  
+
+
+</div> <!-- /container -->
+
+{% endblock %}

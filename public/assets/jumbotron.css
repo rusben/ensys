@@ -6,3 +6,11 @@ body {
 footer {
  padding-top: 1.5rem;	
 }
+
+.bar1 { width: 1%; }
+.bar25 { width: 25%; }
+.bar50 { width: 50%; }
+.bar75 { width: 75%; }
+.bar100 { width: 100%; }
+.fieldset-padded { padding-left: 20px; }
+.card-header-huge .btn-link { font-size: 30px; }

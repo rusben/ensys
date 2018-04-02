@@ -1,0 +1,60 @@
+<div class="row">
+<div class="col-md-12">
+<h5><strong>GA (Gestió Administrativa)</strong></h5>
+</div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><strong>1er GA</strong></h5>
+        <p class="card-text">INS Puig Castellar</p>
+        <a href="#" class="btn btn-primary float-right">Matrícula</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><strong>2on GA</strong></h5>
+        <p class="card-text">INS Puig Castellar</p>
+        <a href="#" class="btn btn-primary float-right">Matrícula</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+&nbsp;
+</div>
+
+<div class="row">
+<div class="col-md-12">
+<h5><strong>SMX (Sistemes Microinformàtics i Xarxes)</strong></h5>
+</div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><strong>1er SMX</strong></h5>
+        <p class="card-text">INS Puig Castellar</p>
+        <form method="post" action="{{ path_for('matricula-2') }}">
+          <input type="hidden" name="course" value="SMX"/>
+          <input type="hidden" name="year" value="1"/>
+          <button class="btn btn-primary float-right">Matrícula</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><strong>2on SMX</strong></h5>
+        <p class="card-text">INS Puig Castellar</p>
+         <form method="post" action="{{ path_for('matricula-2') }}">
+          <input type="hidden" name="course" value="SMX"/>
+          <input type="hidden" name="year" value="2"/>
+          <button class="btn btn-primary float-right">Matrícula</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+          

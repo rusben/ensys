@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container">
+
+<br>
+
+<div class="progress">
+  <div class="progress-bar bar1" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+
+<br>
+
+  <div class="card">
+    <div class="card-body">
+      {% include "avis-important.html" %} 
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      {% include "documentacio.html" %} 
+    </div>
+  </div>
+  <br>
+  <form method="post" action="{{ path_for('matricula-1') }}">
+    <button type="submit" class="btn btn-primary float-right">Entenc i vull continuar</button>
+  </form>
+</div> <!-- /container -->
+
+{% endblock %}

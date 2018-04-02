@@ -1,0 +1,120 @@
+<h4 class="card-title">En quins estudis et matricules?</h4>
+<h6 class="card-subtitle mb-2 text-muted">Selecciona el curs en el que et vols matricular.</h6>
+
+<script>
+$('.collapse').collapse();
+
+</script>
+
+<div id="accordion">
+  <div class="card">
+    <div class="card-header card-header-huge" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <strong>ESO</strong>
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        {% include "selector-curs-eso.html" %} 
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header card-header-huge" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <strong>Batxillerat</strong>
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        {% include "selector-curs-bat.html" %} 
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header card-header-huge" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <strong>CFGM (Cicles Formatius de Grau Mitjà)</strong>
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        {% include "selector-curs-cfgm.html" %} 
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header card-header-huge" id="headingFour">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          <strong>CFGS (Cicles Formatius de Grau Superior)</strong>
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+      <div class="card-body">
+        {% include "selector-curs-cfgs.html" %} 
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header card-header-huge" id="headingFive">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          <strong>CAS (Curs d'Accés a Grau Superior)</strong>
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+      <div class="card-body">
+        {% include "selector-curs-cas.html" %} 
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+
+ <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">En quins estudis et matricules?</h4>
+      <h6 class="card-subtitle mb-2 text-muted">Selecciona el curs en el que et vols matricular.</h6>
+      
+      <div class="form-group">
+        <select multiple size="17" class="form-control" name="studies" id="studies">
+      <optgroup label="ESO">
+            <option>1er ESO</option>
+            <option>2on ESO</option>
+            <option>3er ESO</option>
+            <option>4rt ESO</option>
+          </optgroup>
+      <optgroup label="Batxillerat">
+            <option>1er Batxillerat</option>
+            <option>2on Batxillerat</option>
+          </optgroup>
+          <optgroup label="CFGM (Cicles Formatius de Grau Mitjà)">
+            <option>GA (Gestió Administrativa)</option>
+            <option>SMX (Sistemes Microinformàtics i Xarxes)</option>
+          </optgroup>
+          <optgroup label="CFGS (Cicles Formatius de Grau Superior)">
+            <option>AF (Administració i Finances)</option>
+            <option>ASIX (Administració de Sistemes Informàtics en Xarxa)</option>
+            <option>DAM (Desenvolupament d'Aplicacions Multiplataforma)</option>
+          </optgroup>
+          <optgroup label="Altres">
+            <option>CAS (Curs d'Accés a Grau Superior)</option>       
+          </optgroup>         
+        </select>
+      </div>
+      
+    </div>
+  </div>
+
+-->
