@@ -1,50 +1,27 @@
 <div class="row">
-<div class="col-md-12">
-<h5><strong>AF (Administració i Finances)</strong></h5>
-</div>
+  <!-- Administració de Sistemes Informàtics i Xarxes (ASIX) -->
   <div class="col-md-6">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title"><strong>1er AF</strong></h5>
+        <h5 class="card-title"><strong>Administració de Sistemes Informàtics i Xarxes (ASIX)</strong></h5>
         <p class="card-text">INS Puig Castellar</p>
-        <a href="#" class="btn btn-primary float-right">Matrícula</a>
+        <form method="post" action="{{ path_for('matricula-2') }}">
+          <input type="hidden" name="course" value="ASIX"/>
+          <button class="btn btn-primary float-right">Matrícula</button>
+        </form>
       </div>
     </div>
   </div>
+  <!-- Administració i Finances (AF) -->
   <div class="col-md-6">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title"><strong>2on AF</strong></h5>
+        <h5 class="card-title"><strong>Desenvolupament d'Aplicacions Multiplataforma (DAM)</strong></h5>
         <p class="card-text">INS Puig Castellar</p>
-        <a href="#" class="btn btn-primary float-right">Matrícula</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-&nbsp;
-</div>
-
-<div class="row">
-<div class="col-md-12">
-<h5><strong>ASIX (Administració de Sistemes Informàtics i Xarxes)</strong></h5>
-</div>
-  <div class="col-md-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title"><strong>1er ASIX</strong></h5>
-        <p class="card-text">INS Puig Castellar</p>
-        <a href="#" class="btn btn-primary float-right">Matrícula</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title"><strong>2on ASIX</strong></h5>
-        <p class="card-text">INS Puig Castellar</p>
-        <a href="#" class="btn btn-primary float-right">Matrícula</a>
+        <form method="post" action="{{ path_for('matricula-2') }}">
+          <input type="hidden" name="course" value="DAM"/>
+          <button class="btn btn-primary float-right">Matrícula</button>
+        </form>
       </div>
     </div>
   </div>
@@ -55,24 +32,16 @@
 </div>
 
 <div class="row">
-<div class="col-md-12">
-<h5><strong>DAM (Desenvolupament d'Aplicacions Multiplataforma)</strong></h5>
-</div>
+  <!-- Administració i Finances (AF) -->
   <div class="col-md-6">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title"><strong>1er DAM</strong></h5>
+        <h5 class="card-title"><strong>Administració i Finances (AF)</strong></h5>
         <p class="card-text">INS Puig Castellar</p>
-        <a href="#" class="btn btn-primary float-right">Matrícula</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title"><strong>2on DAM</strong></h5>
-        <p class="card-text">INS Puig Castellar</p>
-        <a href="#" class="btn btn-primary float-right">Matrícula</a>
+        <form method="post" action="{{ path_for('matricula-2') }}">
+          <input type="hidden" name="course" value="AF"/>
+          <button class="btn btn-primary float-right">Matrícula</button>
+        </form>
       </div>
     </div>
   </div>

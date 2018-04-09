@@ -73,12 +73,9 @@ $segon[] = $courses[9];
 $segon[] = $courses[10];
 $segon[] = $courses[12];
 
-
-
     return $this->view->render($response, 'matricula-2.html', [
         'name' => $args['name'],
         'course' => $request->getParsedBody()['course'],
-        'year' => $request->getParsedBody()['year'],
         'courses' => [["name" => "Primer curs", "modules" => $primer], ["name" => "Segon curs", "modules" => $segon]]
     ]);
 })->setName('matricula-2');

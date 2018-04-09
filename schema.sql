@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 02, 2018 at 09:20 PM
+-- Generation Time: Apr 09, 2018 at 12:30 PM
 -- Server version: 5.7.21-0ubuntu0.16.04.1
--- PHP Version: 7.0.28-1+ubuntu16.04.1+deb.sury.org+1
+-- PHP Version: 7.0.28-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,8 +17,20 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `slim.local`
+-- Database: `ensys.local`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Course`
+--
+
+CREATE TABLE `Course` (
+  `id` int(11) NOT NULL,
+  `name` text COLLATE utf8_unicode_ci NOT NULL,
+  `lectiveYear` varchar(9) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -28,9 +40,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `Enrollment` (
   `id` int(11) NOT NULL,
-  `date` datetime NOT NULL,
   `studentId` int(11) NOT NULL,
-  `groupId` int(11) NOT NULL
+  `courseId` int(11) NOT NULL,
+  `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -51,6 +63,19 @@ CREATE TABLE `example` (
 INSERT INTO `example` (`id`, `name`) VALUES
 (1, 'Michael'),
 (2, 'Joseph');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `LectiveYear`
+--
+
+CREATE TABLE `LectiveYear` (
+  `name` text COLLATE utf8_unicode_ci NOT NULL,
+  `year` varchar(9) COLLATE utf8_unicode_ci NOT NULL,
+  `startDate` date NOT NULL,
+  `endDate` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -136,10 +161,29 @@ CREATE TABLE `todos` (
 --
 
 --
+-- Indexes for table `Course`
+--
+ALTER TABLE `Course`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `lectiveYear` (`lectiveYear`);
+
+--
+-- Indexes for table `Enrollment`
+--
+ALTER TABLE `Enrollment`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `example`
 --
 ALTER TABLE `example`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `LectiveYear`
+--
+ALTER TABLE `LectiveYear`
+  ADD PRIMARY KEY (`year`);
 
 --
 -- Indexes for table `prestudent`
@@ -174,6 +218,11 @@ ALTER TABLE `todos`
 --
 
 --
+-- AUTO_INCREMENT for table `Course`
+--
+ALTER TABLE `Course`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `example`
 --
 ALTER TABLE `example`
@@ -184,6 +233,16 @@ ALTER TABLE `example`
 ALTER TABLE `prestudent`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
+-- AUTO_INCREMENT for table `Relative`
+--
+ALTER TABLE `Relative`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `Student`
+--
+ALTER TABLE `Student`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `todos`
 --
 ALTER TABLE `todos`
@@ -191,6 +250,12 @@ ALTER TABLE `todos`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `Course`
+--
+ALTER TABLE `Course`
+  ADD CONSTRAINT `Course_ibfk_1` FOREIGN KEY (`lectiveYear`) REFERENCES `LectiveYear` (`year`);
 
 --
 -- Constraints for table `Relative`
